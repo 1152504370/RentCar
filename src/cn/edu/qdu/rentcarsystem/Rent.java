@@ -2,7 +2,7 @@ package cn.edu.qdu.rentcarsystem;
 
 import java.util.Scanner;
 
-public class System {
+public class Rent {
 	private int days;
 	private int totalPrice;
 	Car[] car = new Car[3];
@@ -19,7 +19,7 @@ public class System {
 		}
 
 		for (int i = 0; i < bus.length; i++) {
-			car[i] = new Car("客车", type1[i], price1[i]);
+			bus[i] = new Bus("客车", type2[i], price2[i]);
 		}
 	}
 
@@ -32,10 +32,10 @@ public class System {
 		switch (kind) {
 		case 1:
 			
-			for (int i = 0; i <bus.length; i++) {
-				System.out.println("现有轿车信息为：");
-				System.out.println("车型\t日租金\t车牌号");
-				System.out.println((i+1)+car[i].getType()+"  "+car[i].getPrice()+"   "+car[i].getCarID());
+			System.out.println("现有轿车信息为：");
+			System.out.println("序号\t车型\t日租金\t车牌号");
+			for (int i = 0; i <car.length; i++) {
+				System.out.println((i+1)+"   "+car[i].getType()+"   "+car[i].getPrice()+"    "+car[i].getCarID());
 				
 			}
 			
@@ -53,22 +53,22 @@ public class System {
 			}
 			break;
 		case 2:
+			System.out.println("现有客车信息为：");
+			System.out.println("序号\t车型\t日租金\t车牌号");
 			for (int i = 0; i <bus.length; i++) {
-				System.out.println("现有客车信息为：");
-				System.out.println("车型\t日租金\t车牌号");
-				System.out.println((i+1)+bus[i].getType()+"  "+bus[i].getPrice()+"   "+bus[i].getCarID());
+				System.out.println((i+1)+"  "+bus[i].getType()+"   "+bus[i].getPrice()+"   "+bus[i].getCarID());
 			}
 			System.out.println("请输入您想要的车型：(填写上述表中的序号即可)");
-			int num = input.nextInt();
-			System.out.println("您选择的是车型是"+car[num-1].getType()+car[num-1].getName());
+			int num1 = input.nextInt();
+			System.out.println("您选择的是车型是"+bus[num1-1].getType()+bus[num1-1].getName());
 			System.out.println("请输入您要租用的天数：");
 			days = input.nextInt();
-			totalPrice = car[num-1].countPrice(days);
+			totalPrice = bus[num1-1].countPrice(days);
 			System.out.println("您的租车费用为"+totalPrice);
 			System.out.println("确定付费并租用该车？（Y/N）");
-			String yn = input.next();
-			if(yn.equalsIgnoreCase("y")){
-				System.out.println("您租用的牌号为"+car[num-1].getCarID()+"请收好您的车钥匙！");
+			String yn1 = input.next();
+			if(yn1.equalsIgnoreCase("y")){
+				System.out.println("您租用的牌号为"+car[num1-1].getCarID()+"请收好您的车钥匙！");
 			}
 			
 			break;
