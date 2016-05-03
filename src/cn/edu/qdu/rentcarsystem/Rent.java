@@ -11,16 +11,16 @@ public class Rent {
 
 	// 开始方法是整个系统的入口，建立两个对象数组，调用构造方法初始化车辆信息
 	public void start() {
-		String[] type1 = { "别克商务", "宝马550i", "别克林荫道" };
-		String[] type2 = { "大于16座", "少于16座" };
+		String[] type = { "别克商务", "宝马550i", "别克林荫道" };
+		int[] seat = { 10, 18 };
 		int[] price1 = { 600, 500, 300 };
 		int[] price2 = { 800, 1500 };
 		for (int i = 0; i < car.length; i++) {
-			car[i] = new Car("轿车", type1[i], price1[i]);
+			car[i] = new Car("轿车", type[i], price1[i]);
 		}
 
 		for (int i = 0; i < bus.length; i++) {
-			bus[i] = new Bus("客车", type2[i], price2[i]);
+			bus[i] = new Bus("客车", seat[i], price2[i]);
 		}
 		this.welcome();
 	}
@@ -52,6 +52,7 @@ public class Rent {
 	public void rent(Moto[] v) {
 		System.out.println("现有" + v[0].getName() + "信息为：");
 		System.out.println("序号\t车型\t日租金\t车牌号");
+
 		for (int i = 0; i < v.length; i++) {
 
 			v[i].show(i);
@@ -61,8 +62,7 @@ public class Rent {
 			System.out.println("请输入您想要的车型：(填写上述表中的序号即可)");
 			num = input.nextInt();
 		} while (num <= 0 || num > v.length);
-		System.out.println(
-				"您选择的是车型是: " + v[num - 1].getType() + v[num - 1].getName() + " 单日租金为: " + v[num - 1].getPrice());
+		System.out.println("您选择的是车型单日租金为: " + v[num - 1].getPrice());
 		System.out.println("请输入您要租用的天数：");
 		days = input.nextInt();
 		totalPrice = v[num - 1].countPrice(days);
