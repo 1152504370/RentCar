@@ -12,8 +12,11 @@ public abstract class Moto {
     	  this.setName(name);
     	  this.setType(type);
     	  this.setPrice(price);
-    	  String ID = "³B"+(int)(Math.random()*10000);
-    	  this.setCarID(ID);
+    	  String iD = "³B"+(int)(Math.random()*9000+1000);
+    	  this.setCarID(iD);
+      }
+      public void show(int i){
+    	  System.out.println((i+1)+"\t"+getType()+"\t"+getPrice()+"\t"+getCarID());
       }
       
       public int countPrice(int days){
