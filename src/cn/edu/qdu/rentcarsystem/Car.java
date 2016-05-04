@@ -9,7 +9,7 @@ public class Car extends Moto {
 	}
 
 	public void show(int i) {
-		System.out.println((i + 1) + "\t" + getType() + "\t" + getPrice() + "\t" + getCarID());
+		System.out.print((i + 1) + "\t" + getType() + "½Î³µ\t" + getPrice() + "\t" + getCarID());
 
 	}
 
